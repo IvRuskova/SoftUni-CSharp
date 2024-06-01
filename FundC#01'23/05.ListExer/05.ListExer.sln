@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.ListExer", "05.ListExer\05.ListExer.csproj", "{E371A3A7-97AC-435A-A18A-2611EE3C7CE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05.BombNumberes", "05.ListExer\05.BombNumberes.csproj", "{E371A3A7-97AC-435A-A18A-2611EE3C7CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.CardsGame", "06.CardsGame\06.CardsGame.csproj", "{EA139E6D-BF3D-46C3-A62C-7673DF52274D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.AppendArrays", "07.AppendArrays\07.AppendArrays.csproj", "{43E852CB-FB8D-4FD5-8B38-216F3E985C8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{E371A3A7-97AC-435A-A18A-2611EE3C7CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E371A3A7-97AC-435A-A18A-2611EE3C7CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E371A3A7-97AC-435A-A18A-2611EE3C7CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA139E6D-BF3D-46C3-A62C-7673DF52274D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA139E6D-BF3D-46C3-A62C-7673DF52274D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA139E6D-BF3D-46C3-A62C-7673DF52274D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA139E6D-BF3D-46C3-A62C-7673DF52274D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43E852CB-FB8D-4FD5-8B38-216F3E985C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43E852CB-FB8D-4FD5-8B38-216F3E985C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43E852CB-FB8D-4FD5-8B38-216F3E985C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43E852CB-FB8D-4FD5-8B38-216F3E985C8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
