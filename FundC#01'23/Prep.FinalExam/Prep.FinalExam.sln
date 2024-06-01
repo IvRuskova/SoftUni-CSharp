@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prob.01-TheImatitionGame", "Prep.FinalExam\Prob.01-TheImatitionGame.csproj", "{2214671F-7950-4BC3-A7AB-15568F69DD92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prob.02-DestinationMapper", "Prob.02-DestinationMapper\Prob.02-DestinationMapper.csproj", "{7354BC52-C198-49CB-A083-9B286A35FB45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2214671F-7950-4BC3-A7AB-15568F69DD92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2214671F-7950-4BC3-A7AB-15568F69DD92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2214671F-7950-4BC3-A7AB-15568F69DD92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2214671F-7950-4BC3-A7AB-15568F69DD92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7354BC52-C198-49CB-A083-9B286A35FB45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7354BC52-C198-49CB-A083-9B286A35FB45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7354BC52-C198-49CB-A083-9B286A35FB45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7354BC52-C198-49CB-A083-9B286A35FB45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31940844-55AA-4C34-A387-33E36D124FC8}
+	EndGlobalSection
+EndGlobal
