@@ -1,7 +1,9 @@
-﻿
+﻿//Input
 List<string> array=Console.ReadLine()
     .Split('|')
     .ToList();
+
+//Act
 List<string> input =new List<string>();
 
 for (int i = array.Count-1; i >= 0; i--)
@@ -14,4 +16,6 @@ for (int i = array.Count-1; i >= 0; i--)
         input.Add(currentList[j]);
     }
 }
+
+//Output
 Console.WriteLine(string.Join(" ",input));

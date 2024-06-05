@@ -1,4 +1,4 @@
-﻿
+﻿//Input
 List<int> sequenseNumber = Console.ReadLine()
     .Split(' ', StringSplitOptions.RemoveEmptyEntries)
     .Select(int.Parse)
@@ -8,6 +8,7 @@ int[] specialBombNumber = Console.ReadLine()
     .Select(int.Parse)
     .ToArray();
 
+//Act
 int bomb = specialBombNumber[0];
 int power = specialBombNumber[1];
 int indexBomb = 0;
@@ -35,4 +36,6 @@ while (sequenseNumber.Contains(bomb))
     }
     sequenseNumber.RemoveRange(startIndex, count);
 }
+
+//Output
 Console.WriteLine(sequenseNumber.Sum());
