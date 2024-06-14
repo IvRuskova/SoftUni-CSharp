@@ -1,4 +1,6 @@
-﻿int[] firstArray = Console.ReadLine()
+﻿//Input
+
+int[] firstArray = Console.ReadLine()
     .Split()
     .Select(int.Parse)
     .ToArray();
@@ -8,20 +10,24 @@ int[] secondArray = Console.ReadLine()
     .Select(int.Parse)
     .ToArray();
 
-int totalSum = 0;
-bool areSame = true;
-
+//Act
+int sum = 0;
+bool same = true;
 for (int i = 0; i < firstArray.Length; i++)
 {
-    totalSum +=firstArray[i];
+    sum += firstArray[i];
+
+    //Output
+    //"Arrays are identical. Sum: {sum}"
+    //"Arrays are not identical. Found difference at {index} index"
     if (firstArray[i] != secondArray[i])
     {
-        Console.WriteLine($"Arrays are not identical. Found difference at {i} index.");
-        areSame = false;
+        Console.WriteLine($"Arrays are not identical.Found difference at {i} index");
+        same = false;
         break;
     }
 }
-if (areSame)
+if (same)
 {
-    Console.WriteLine($"Arrays are identical. Sum: {totalSum}");
+    Console.WriteLine($"Arrays are identical. Sum: {sum}");
 }
