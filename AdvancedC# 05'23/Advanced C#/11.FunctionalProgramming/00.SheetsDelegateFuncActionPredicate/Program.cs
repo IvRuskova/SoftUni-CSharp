@@ -6,7 +6,12 @@ delegate int Combine(int x, int y);
 Combine multiply = (x, y) => x * y;
 Combine add = (x, y) => x + y;
 int mult = multiply(3, 5);
-int sum = add(3, 5);
+int summ = add(3, 5);
+
+MyPredicate checkEqual = (num1, num2) => num1 == num2;
+Console.WriteLine(checkEqual(2, 4));
+
+delegate bool MyPredicate(int num1, int num2);
 
 //Action<T>
 void Print(string message)
@@ -15,6 +20,12 @@ void Print(string message)
 }
 //Same
 Action<string> print = message => Console.WriteLine(message);
+
+Action<string> printt = srt => Console.WriteLine(srt);
+static void Printt(string srt)=> 
+    Console.WriteLine(srt);
+printt(" J Jho");
+Printt("JJ Jho");
 
 
 //Predicate - boolean method
@@ -26,8 +37,26 @@ var nums = new List<int> { 3, 5, -2, 10, 0, 3 };
 var negs = nums.FindAll(isNegative);
 Console.WriteLine(String.Join(", ", negs));
 
+Predicate<int> checkEven = number => number%2 == 0;
+static bool CheckEven(int number)
+{
+    return number % 2 == 0;
+}
+Console.WriteLine(checkEven(3));
+Console.WriteLine(CheckEven(4));
+
 //Func<int- input type, string-output type> func- name = (n- input parameter =>n.ToString();-return expression)- lambda expression
 Func<int, string> func = n =>n.ToString();
+
+Func<int, int, int> sum = (num1, num2) => num1 + num2;
+Console.WriteLine(sum(12,7));
+Console.WriteLine(sum(5, 4));
+
+static int Sum(int num1, int num2)
+{
+    return num1 + num2;
+}
+
 
 //Can pass Func<> in method
 int Operation(int number, Func<int, int> operation) 
