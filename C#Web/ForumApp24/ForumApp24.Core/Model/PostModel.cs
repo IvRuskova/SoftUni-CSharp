@@ -9,7 +9,7 @@ using static ForumApp24.Infrastructure.Constants.ValidationConstants;
 namespace ForumApp24.Core.Model
 {
     /// <summary>
-    /// Post data transfer model
+    /// Post data transfer model  
     /// </summary>
     public class PostModel
     {
