@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace _10.Chonometer
 {
-    internal interface IChronometer
+    interface IChronometer
     {
+        string GetTime {  get; }
+        List<string> Laps { get; }
+
+        void Start();
+        void Stop();
+        string Lap();
+        void Reset();
     }
 }
