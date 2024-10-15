@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TaskBoardApp.Data.Configuration;
 
 namespace TaskBoardApp.Data
 {
@@ -11,7 +12,9 @@ namespace TaskBoardApp.Data
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            
+            builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new BoardConfiguration());
+            builder.ApplyConfiguration(new TaskConfiguration());
             base.OnModelCreating(builder);
         }
         public DbSet<Board> Boards { get; set; }

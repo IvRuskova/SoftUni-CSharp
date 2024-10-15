@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace TaskBoardApp.Data.Configuration
@@ -7,22 +6,7 @@ namespace TaskBoardApp.Data.Configuration
 {
     public class TaskConfiguration : IEntityTypeConfiguration<Task>
     {
-        public IdentityUser TestUser = GetUser();
-        public Board OpenBoard = new Board()
-        {
-            Id = 1,
-            Name = "Open"
-        };
-        public Board InProgressBoard = new Board()
-        {
-            Id = 2,
-            Name = "In progress"
-        };
-        public Board DoneBoard = new Board()
-        {
-            Id = 3,
-            Name = "Done"
-        };
+        
 
 
         public void Configure(EntityTypeBuilder<Task> builder)
@@ -31,28 +15,50 @@ namespace TaskBoardApp.Data.Configuration
                   .WithMany(b => b.Tasks)
                   .HasForeignKey(t => t.BoardId)
                   .OnDelete(DeleteBehavior.Restrict);
+            builder.HasData(SeedTasks());
         }
-        private IEnumerable<Task> SeedTasks {
+        private IEnumerable<Task> SeedTasks()
+        {
 
-            Task [] tasks = new Task[]
+            return new Task[]
             {
                 new Task()
-{ 
-        
-}
+                {
+                    Id=1,
+                    Title="Improve CSS Styles",
+                    Description = "Improve better styling for all public pages",
+                    CreatedOn= DateTime.Now.AddDays(-200),
+                    OwnerId=ConfigurationHelper.TestUser.Id,
+                    BoardId=ConfigurationHelper.OpenBoard.Id
+                },
+                new Task()
+                {
+                     Id=2,
+                    Title="Android Client App",
+                    Description = "Create Android client app for the TaskBoard RESTful API",
+                    CreatedOn= DateTime.Now.AddMonths(-5),
+                    OwnerId=ConfigurationHelper.TestUser.Id,
+                    BoardId=ConfigurationHelper.OpenBoard.Id
+                },
+                new Task()
+                {
+                     Id = 3,
+                    Title="Desktop Client App",
+                    Description = "Create Windows Forms desktop app client app for the TaskBoard RESTful API",
+                    CreatedOn= DateTime.Now.AddMonths(-1),
+                    OwnerId=ConfigurationHelper.TestUser.Id,
+                    BoardId=ConfigurationHelper.InProgressBoard.Id
+                },
+                new Task()
+                {
+                     Id = 4,
+                    Title="Create Tasks",
+                    Description = "Implement [Create Task] page for adding new tasks",
+                    CreatedOn= DateTime.Now.AddYears(-1),
+                    OwnerId=ConfigurationHelper.TestUser.Id,
+                    BoardId=ConfigurationHelper.DoneBoard.Id
+                }
             };
         }
-        private static IdentityUser GetUser()
-        {
-            var hasher = new PasswordHasher<IdentityUser>();
-            var user = new IdentityUser() 
-            {
-                UserName = "test@softuni.bg",
-                NormalizedUserName = "TEST@SOFTUNI.BG"
-            };
-            user.PasswordHash = hasher.HashPassword(user, "softuni");
-            return user;
-        }
-        
     }
 }
