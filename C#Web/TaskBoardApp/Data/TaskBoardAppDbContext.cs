@@ -9,6 +9,11 @@ namespace TaskBoardApp.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            
+            base.OnModelCreating(builder);
+        }
         public DbSet<Board> Boards { get; set; }
         public DbSet<Task> Tasks { get; set; }
     }
