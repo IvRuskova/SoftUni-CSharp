@@ -22,8 +22,6 @@ namespace TaskBoardApp.Views
 
         public DateTime? CreatedOn { get; set; }
 
-        public int? BoardId { get; set; }
-
         [Required]
         public string Owner { get; set; } = string.Empty;
     }
