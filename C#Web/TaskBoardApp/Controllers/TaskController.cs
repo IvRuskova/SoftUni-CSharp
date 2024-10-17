@@ -70,7 +70,7 @@ namespace TaskBoardApp.Controllers
             return View(task);
         }
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var task = await data.Tasks.FindAsync(id);
@@ -83,8 +83,9 @@ namespace TaskBoardApp.Controllers
             {
                 return Unauthorized();
             }
-            var model = new TaskDetailsViewModel()
+            var model = new TaskFormViewModel()
             {
+                Title = task.Title,
                 BoardId = task.BoardId,
                 Description = task.Description,
                 Id = task.Id,
@@ -92,8 +93,8 @@ namespace TaskBoardApp.Controllers
             };
             return View(model);
         }
-        [HttpGet]
-        public async Task<IActionResult> Edit(int id, TaskFormViewModel taskModel)
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, TaskFormViewModel model)
         {
             var task = await data.Tasks.FindAsync(id);
             if (task == null)
@@ -105,26 +106,30 @@ namespace TaskBoardApp.Controllers
             {
                 return Unauthorized();
             }
-            if (!GetBoards().Any(b=>b.Id == taskModel.BoardId))
+            if (!(await GetBoards()).Any(b=>b.Id == model.BoardId))
             {
-                ModelState.AddModelError(nameof(taskModel.BoardId), "Board does not exist.");
+                ModelState.AddModelError(nameof(model.BoardId), "Board does not exist.");
             }
             if (!ModelState.IsValid)
             {
-                taskModel.Boards = GetBoards();
-                return View(taskModel);
+                model.Boards = await GetBoards();
+                return View(model);
             }
-            task.Title = taskModel.Title;
-            task.Description = taskModel.Description;
-            task.BoardId = taskModel.BoardId;
+
+            task.Title = model.Title;
+            task.Description = model.Description;
+            task.BoardId = model.BoardId;
+
             await data.SaveChangesAsync();
-            return RedirectToAction("All", "Board");
+            return RedirectToAction("Index", "Board");
         }
 
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var task = await data.Tasks.FindAsync(id);
-            if (task == null) {
+            if (task == null)
+            {
                 return BadRequest();
             }
             string currentUserId = GetUserId();
@@ -132,13 +137,32 @@ namespace TaskBoardApp.Controllers
             {
                 return Unauthorized();
             }
-            TaskViewModel taskViewModel = new TaskViewModel()
+            var model = new TaskViewModel()
             {
                 Id = task.Id,
                 Title = task.Title,
                 Description = task.Description,
             };
-            return View(taskViewModel);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(TaskViewModel model)
+        {
+            var task = await data.Tasks.FindAsync(model.Id);
+            if (task == null)
+            {
+                return BadRequest();
+            }
+            string currentUserId = GetUserId();
+            if (task.OwnerId != currentUserId)
+            {
+                return Unauthorized();
+            }
+            data.Tasks.Remove(task);
+            await data.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Board");
         }
         private string GetUserId()
         {

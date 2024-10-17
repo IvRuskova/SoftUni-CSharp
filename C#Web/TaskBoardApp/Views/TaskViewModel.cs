@@ -20,8 +20,6 @@ namespace TaskBoardApp.Views
         [MinLength(DataConstants.Task.DescriptionMinLength)]
         public string Description { get; set; } = string.Empty;
 
-        public DateTime? CreatedOn { get; set; }
-
         [Required]
         public string Owner { get; set; } = string.Empty;
     }
