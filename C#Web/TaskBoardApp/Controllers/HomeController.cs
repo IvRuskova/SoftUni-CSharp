@@ -29,7 +29,7 @@ namespace TaskBoardApp.Controllers
                 tasksCounts.Add(new HomeBoardModel()
                 {
                     BoardName = boardName,
-                    TaskCount = taskInBoard
+                    TasksCount = taskInBoard
 
                 });
             }
@@ -43,9 +43,9 @@ namespace TaskBoardApp.Controllers
 
             var homeModel = new HomeViewModel()
             {
-                AllTaskCount = _data.Tasks.Count(),
+                AllTasksCount = _data.Tasks.Count(),
                 BoardsWithTasksCount = tasksCounts,
-                UserTaskCount = userTaksCount
+                UserTasksCount = userTaksCount
             };
             return View(homeModel);
         }

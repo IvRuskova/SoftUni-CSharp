@@ -2,8 +2,8 @@
 {
     public class HomeViewModel
     {
-        public int AllTaskCount { get; init; }
+        public int AllTasksCount { get; init; }
         public List<HomeBoardModel> BoardsWithTasksCount { get; init; } = null!;
-        public int UserTaskCount { get; set; }
+        public int UserTasksCount { get; set; }
     }
 }
