@@ -13,6 +13,12 @@ namespace Homies.Data
         {
             modelBuilder.Entity<EventParticipant>()
                 .HasKey(ep => new { ep.EventId, ep.HelperId });
+
+            modelBuilder.Entity<EventParticipant>()
+                .HasOne(e => e.Event)
+                .WithMany(e => e.EventsParticipants)
+                .OnDelete(DeleteBehavior.Restrict);
+
             modelBuilder
                 .Entity<Type>()
                 .HasData(new Type()

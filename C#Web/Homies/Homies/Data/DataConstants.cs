@@ -1,4 +1,5 @@
-﻿namespace Homies.Data
+﻿
+namespace Homies.Data
 {
     public static class DataConstants
     {
@@ -12,5 +13,6 @@
 
         public const int TypeNameMinLength = 5;
         public const int TypeNameMaxLength = 15;
-    }
 }
+    }
+
