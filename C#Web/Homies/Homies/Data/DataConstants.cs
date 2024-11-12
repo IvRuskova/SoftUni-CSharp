@@ -13,6 +13,9 @@ namespace Homies.Data
 
         public const int TypeNameMinLength = 5;
         public const int TypeNameMaxLength = 15;
-}
+
+        public const string RequireErrorMessage = "The field {0} is required";
+        public const string StringLegthErrorMessage = "The field {0} must be between {2} and {1} characters long";
     }
+}
 
